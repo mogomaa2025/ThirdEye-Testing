@@ -1,0 +1,546 @@
+{
+  "navigation_mode": {
+    "title": "Navigation Mode Test Cases",
+    "subcategory": "4 sub-modes for different navigation scenarios",
+    "test_cases": [
+      {
+        "id": "NAV-001",
+        "title": "Indoor Navigation - Basic Movement",
+        "description": "Test the system's ability to guide user through indoor spaces",
+        "priority": "High",
+        "type": "Functional",
+        "preconditions": "User is wearing the headset, indoors, system calibrated",
+        "steps": [
+          "Activate Navigation mode via voice command",
+          "Walk towards a known destination (e.g., door, chair)",
+          "Follow audio navigation instructions",
+          "Reach the destination"
+        ],
+        "expected_result": "Clear audio directions provided, user reaches destination safely",
+        "test_data": "Indoor map of test environment"
+      },
+      {
+        "id": "NAV-002",
+        "title": "Outdoor Navigation - GPS Integration",
+        "description": "Verify outdoor navigation with GPS coordinates",
+        "priority": "High",
+        "type": "Integration",
+        "preconditions": "GPS signal available, outdoor environment",
+        "steps": [
+          "Set destination via voice command",
+          "Start walking following audio directions",
+          "Test route recalculation when path changes",
+          "Verify arrival notification"
+        ],
+        "expected_result": "Accurate GPS-based navigation with real-time updates"
+      },
+      {
+        "id": "NAV-003",
+        "title": "Obstacle Detection During Navigation",
+        "description": "Test system response to obstacles during navigation",
+        "priority": "Critical",
+        "type": "Safety",
+        "preconditions": "Navigation mode active, obstacles placed in path",
+        "steps": [
+          "Start navigation to destination",
+          "Place unexpected obstacle in path",
+          "Verify obstacle detection alert",
+          "Follow alternative route guidance"
+        ],
+        "expected_result": "Immediate obstacle alert, safe alternative route provided"
+      },
+      {
+        "id": "NAV-004",
+        "title": "Navigation Mode Integration with Other Modes",
+        "description": "Test switching between navigation and other modes",
+        "priority": "Medium",
+        "type": "Integration",
+        "preconditions": "Navigation active, other modes available",
+        "steps": [
+          "Start navigation",
+          "Switch to object detection mode",
+          "Return to navigation",
+          "Verify context preservation"
+        ],
+        "expected_result": "Seamless mode switching without losing navigation context"
+      },
+      {
+        "id": "NAV-005",
+        "title": "Navigation in Noisy Environment",
+        "description": "Test audio clarity in high-noise environments",
+        "priority": "Medium",
+        "type": "Environmental",
+        "preconditions": "High ambient noise (>70dB), navigation active",
+        "steps": [
+          "Activate navigation in noisy location",
+          "Test volume adjustment",
+          "Verify command recognition",
+          "Complete navigation task"
+        ],
+        "expected_result": "Clear audio despite noise, successful task completion"
+      }
+    ]
+  },
+  "object_detection": {
+    "title": "Object Detection & Scene Description Test Cases",
+    "subcategory": "Computer vision for object recognition and scene understanding",
+    "test_cases": [
+      {
+        "id": "OBJ-001",
+        "title": "Basic Object Recognition",
+        "description": "Test recognition of common everyday objects",
+        "priority": "High",
+        "type": "Functional",
+        "preconditions": "Good lighting, clear view of objects",
+        "steps": [
+          "Point device towards common objects (chair, table, phone)",
+          "Activate object detection mode",
+          "Listen to object identification",
+          "Verify accuracy of identification"
+        ],
+        "expected_result": "Accurate identification of 90%+ common objects",
+        "test_data": "Set of 50 common household objects"
+      },
+      {
+        "id": "OBJ-002",
+        "title": "Scene Description Accuracy",
+        "description": "Test comprehensive scene description capability",
+        "priority": "High",
+        "type": "Functional",
+        "preconditions": "Complex scene with multiple objects",
+        "steps": [
+          "Position user in room with multiple objects",
+          "Activate scene description",
+          "Listen to complete scene description",
+          "Verify completeness and accuracy"
+        ],
+        "expected_result": "Comprehensive, logical scene description mentioning key elements"
+      },
+      {
+        "id": "OBJ-003",
+        "title": "Object Search Functionality",
+        "description": "Test ability to search for specific objects",
+        "priority": "Medium",
+        "type": "Functional",
+        "preconditions": "Target object present in environment",
+        "steps": [
+          "Request search for specific object (e.g., 'Find my keys')",
+          "System scans environment",
+          "Receive directional guidance to object",
+          "Confirm object location"
+        ],
+        "expected_result": "Successful location and direction to requested object"
+      },
+      {
+        "id": "OBJ-004",
+        "title": "Low Light Object Detection",
+        "description": "Test object recognition in poor lighting conditions",
+        "priority": "Medium",
+        "type": "Environmental",
+        "preconditions": "Dimly lit environment (<50 lux)",
+        "steps": [
+          "Reduce lighting to minimum acceptable level",
+          "Attempt object recognition",
+          "Compare accuracy with good lighting",
+          "Test infrared/night vision if available"
+        ],
+        "expected_result": "Acceptable recognition rate (>70%) in low light"
+      },
+      {
+        "id": "OBJ-005",
+        "title": "Moving Object Detection",
+        "description": "Test detection of moving objects (people, vehicles)",
+        "priority": "High",
+        "type": "Safety",
+        "preconditions": "Environment with moving objects",
+        "steps": [
+          "Position in area with moving objects",
+          "Activate object detection",
+          "Verify detection of moving objects",
+          "Test warning for approaching objects"
+        ],
+        "expected_result": "Real-time detection and warning for moving objects"
+      }
+    ]
+  },
+  "face_recognition": {
+    "title": "Face Recognition Test Cases",
+    "subcategory": "Identify people and manage face database",
+    "test_cases": [
+      {
+        "id": "FACE-001",
+        "title": "Known Face Recognition",
+        "description": "Test recognition of pre-registered faces",
+        "priority": "High",
+        "type": "Functional",
+        "preconditions": "Faces registered in database, good lighting",
+        "steps": [
+          "Approach registered person",
+          "Activate face recognition",
+          "Listen for name announcement",
+          "Verify correct identification"
+        ],
+        "expected_result": "Accurate identification with >95% confidence",
+        "test_data": "Database of 10-20 registered faces"
+      },
+      {
+        "id": "FACE-002",
+        "title": "New Face Registration via GUI",
+        "description": "Test adding new faces using graphical interface",
+        "priority": "Medium",
+        "type": "Functional",
+        "preconditions": "GUI application available, helper present",
+        "steps": [
+          "Open GUI application",
+          "Capture photos of new person",
+          "Enter person's name and details",
+          "Save to database",
+          "Test recognition of newly added face"
+        ],
+        "expected_result": "Successful registration and immediate recognition capability"
+      },
+      {
+        "id": "FACE-003",
+        "title": "Unknown Face Handling",
+        "description": "Test system response to unregistered faces",
+        "priority": "Medium",
+        "type": "Functional",
+        "preconditions": "Unknown person present",
+        "steps": [
+          "Point device towards unknown person",
+          "Activate face recognition",
+          "Listen for unknown person notification",
+          "Test option to register new face"
+        ],
+        "expected_result": "'Unknown person' announcement with registration option"
+      },
+      {
+        "id": "FACE-004",
+        "title": "Multiple Face Detection",
+        "description": "Test recognition when multiple people present",
+        "priority": "Medium",
+        "type": "Functional",
+        "preconditions": "Multiple people in camera view",
+        "steps": [
+          "Position device towards group of people",
+          "Activate face recognition",
+          "Listen for multiple person identification",
+          "Verify accuracy for each person"
+        ],
+        "expected_result": "Sequential identification of all visible faces"
+      },
+      {
+        "id": "FACE-005",
+        "title": "Face Recognition Performance Under Different Angles",
+        "description": "Test recognition accuracy from various angles",
+        "priority": "Medium",
+        "type": "Performance",
+        "preconditions": "Known person available for testing",
+        "steps": [
+          "Test recognition from front view",
+          "Test from 45-degree angle",
+          "Test from profile view",
+          "Test from different distances"
+        ],
+        "expected_result": "Consistent recognition across different viewing angles"
+      }
+    ]
+  },
+  "ocr_translation": {
+    "title": "OCR & Translation Test Cases",
+    "subcategory": "Text reading and Arabic-English translation",
+    "test_cases": [
+      {
+        "id": "OCR-001",
+        "title": "Arabic Text Recognition",
+        "description": "Test OCR accuracy for Arabic text",
+        "priority": "High",
+        "type": "Functional",
+        "preconditions": "Arabic text document available, good lighting",
+        "steps": [
+          "Point device at Arabic text",
+          "Activate OCR mode",
+          "Listen to text-to-speech output",
+          "Verify accuracy of text recognition"
+        ],
+        "expected_result": "Accurate Arabic text recognition (>90%)",
+        "test_data": "Various Arabic fonts and sizes"
+      },
+      {
+        "id": "OCR-002",
+        "title": "English Text Recognition",
+        "description": "Test OCR accuracy for English text",
+        "priority": "High",
+        "type": "Functional",
+        "preconditions": "English text document available",
+        "steps": [
+          "Point device at English text",
+          "Activate OCR mode",
+          "Listen to text-to-speech output",
+          "Compare with original text"
+        ],
+        "expected_result": "Accurate English text recognition (>95%)"
+      },
+      {
+        "id": "OCR-003",
+        "title": "Arabic to English Translation",
+        "description": "Test translation from Arabic to English",
+        "priority": "High",
+        "type": "Functional",
+        "preconditions": "Arabic text available for translation",
+        "steps": [
+          "Scan Arabic text",
+          "Request translation to English",
+          "Listen to translated output",
+          "Verify translation accuracy"
+        ],
+        "expected_result": "Contextually accurate translation (>85%)"
+      },
+      {
+        "id": "OCR-004",
+        "title": "English to Arabic Translation",
+        "description": "Test translation from English to Arabic",
+        "priority": "High",
+        "type": "Functional",
+        "preconditions": "English text available for translation",
+        "steps": [
+          "Scan English text",
+          "Request translation to Arabic",
+          "Listen to Arabic audio output",
+          "Verify translation quality"
+        ],
+        "expected_result": "Accurate Arabic translation with proper pronunciation"
+      },
+      {
+        "id": "OCR-005",
+        "title": "Mixed Language Text Recognition",
+        "description": "Test handling of documents with both Arabic and English",
+        "priority": "Medium",
+        "type": "Functional",
+        "preconditions": "Mixed language document available",
+        "steps": [
+          "Scan document with mixed languages",
+          "Test automatic language detection",
+          "Verify proper reading of both languages",
+          "Test translation of individual sections"
+        ],
+        "expected_result": "Proper identification and handling of both languages"
+      },
+      {
+        "id": "OCR-006",
+        "title": "Handwritten Text Recognition",
+        "description": "Test OCR capability with handwritten text",
+        "priority": "Low",
+        "type": "Functional",
+        "preconditions": "Clear handwritten text samples",
+        "steps": [
+          "Scan handwritten Arabic text",
+          "Scan handwritten English text",
+          "Compare recognition accuracy",
+          "Test with different handwriting styles"
+        ],
+        "expected_result": "Basic recognition capability for clear handwriting"
+      }
+    ]
+  },
+  "sos_mode": {
+    "title": "SOS Emergency Mode Test Cases",
+    "subcategory": "Emergency alert system with multiple communication channels",
+    "test_cases": [
+      {
+        "id": "SOS-001",
+        "title": "Emergency Button Activation",
+        "description": "Test SOS activation via physical button",
+        "priority": "Critical",
+        "type": "Safety",
+        "preconditions": "Emergency contact configured, network connectivity",
+        "steps": [
+          "Press and hold SOS button",
+          "Verify activation confirmation",
+          "Check emergency message sent",
+          "Verify all communication channels activated"
+        ],
+        "expected_result": "Immediate SOS activation with multi-channel alerts",
+        "test_data": "Pre-configured emergency contacts"
+      },
+      {
+        "id": "SOS-002",
+        "title": "Automatic Fall Detection",
+        "description": "Test automatic SOS trigger on fall detection",
+        "priority": "Critical",
+        "type": "Safety",
+        "preconditions": "Fall detection enabled, sensors calibrated",
+        "steps": [
+          "Simulate fall motion (controlled environment)",
+          "Wait for automatic detection",
+          "Verify SOS activation countdown",
+          "Test cancellation option",
+          "Confirm alerts if not cancelled"
+        ],
+        "expected_result": "Automatic SOS activation after fall with cancellation window"
+      },
+      {
+        "id": "SOS-003",
+        "title": "SMS Alert Functionality",
+        "description": "Test SMS emergency message sending",
+        "priority": "Critical",
+        "type": "Integration",
+        "preconditions": "Mobile network available, emergency contacts set",
+        "steps": [
+          "Activate SOS mode",
+          "Verify SMS message composition",
+          "Check message includes location data",
+          "Confirm delivery to emergency contacts"
+        ],
+        "expected_result": "SMS with location and emergency info sent successfully"
+      },
+      {
+        "id": "SOS-004",
+        "title": "Emergency Voice Call",
+        "description": "Test automatic voice call functionality",
+        "priority": "Critical",
+        "type": "Integration",
+        "preconditions": "Voice service available, emergency contact reachable",
+        "steps": [
+          "Trigger SOS activation",
+          "Verify automatic call initiation",
+          "Test pre-recorded emergency message",
+          "Verify call connection and audio quality"
+        ],
+        "expected_result": "Successful voice call with clear emergency message"
+      },
+      {
+        "id": "SOS-005",
+        "title": "Email Emergency Alert",
+        "description": "Test email notification to emergency contacts",
+        "priority": "High",
+        "type": "Integration",
+        "preconditions": "Internet connectivity, email configured",
+        "steps": [
+          "Activate SOS mode",
+          "Verify email composition with details",
+          "Check location information inclusion",
+          "Confirm email delivery"
+        ],
+        "expected_result": "Detailed emergency email sent with location and timestamp"
+      },
+      {
+        "id": "SOS-006",
+        "title": "SOS Mode Under No Network Coverage",
+        "description": "Test SOS behavior without network connectivity",
+        "priority": "High",
+        "type": "Reliability",
+        "preconditions": "Network connectivity disabled",
+        "steps": [
+          "Disable network connectivity",
+          "Attempt SOS activation",
+          "Test queuing of emergency messages",
+          "Restore connectivity",
+          "Verify delayed message delivery"
+        ],
+        "expected_result": "Messages queued and sent when connectivity restored"
+      }
+    ]
+  },
+  "integration_testing": {
+    "title": "System Integration Test Cases",
+    "subcategory": "Testing interactions between different modes and components",
+    "test_cases": [
+      {
+        "id": "INT-001",
+        "title": "Mode Switching Integration",
+        "description": "Test seamless switching between all operation modes",
+        "priority": "High",
+        "type": "Integration",
+        "preconditions": "All modes functional, device fully operational",
+        "steps": [
+          "Start in Navigation mode",
+          "Switch to Object Detection",
+          "Switch to Face Recognition",
+          "Switch to OCR mode",
+          "Test SOS activation from any mode",
+          "Return to Navigation"
+        ],
+        "expected_result": "Smooth transitions without data loss or system lag"
+      },
+      {
+        "id": "INT-002",
+        "title": "Hardware-Software Integration",
+        "description": "Test integration between headset hardware and software system",
+        "priority": "Critical",
+        "type": "Integration",
+        "preconditions": "All hardware components connected",
+        "steps": [
+          "Test camera feed to software",
+          "Verify audio output quality",
+          "Test button responsiveness",
+          "Check sensor data integration",
+          "Verify power management"
+        ],
+        "expected_result": "Perfect synchronization between hardware and software"
+      },
+      {
+        "id": "INT-003",
+        "title": "Voice Command Integration Across Modes",
+        "description": "Test voice command functionality in all modes",
+        "priority": "High",
+        "type": "Integration",
+        "preconditions": "Voice recognition calibrated for user",
+        "steps": [
+          "Test voice commands in Navigation mode",
+          "Test voice commands in Object Detection",
+          "Test voice commands in Face Recognition",
+          "Test voice commands in OCR mode",
+          "Verify global commands (SOS, mode switching)"
+        ],
+        "expected_result": "Consistent voice recognition across all modes"
+      },
+      {
+        "id": "INT-004",
+        "title": "API Integration Testing",
+        "description": "Test integration with external APIs (Translation, Maps, etc.)",
+        "priority": "High",
+        "type": "Integration",
+        "preconditions": "Internet connectivity, API keys configured",
+        "steps": [
+          "Test Google Maps API integration",
+          "Test Translation API functionality",
+          "Test emergency services API",
+          "Verify fallback mechanisms",
+          "Test offline mode capabilities"
+        ],
+        "expected_result": "Reliable API integration with proper error handling"
+      },
+      {
+        "id": "INT-005",
+        "title": "Database Integration",
+        "description": "Test face recognition database and user preferences",
+        "priority": "Medium",
+        "type": "Integration",
+        "preconditions": "Database accessible, test data available",
+        "steps": [
+          "Test face data storage and retrieval",
+          "Test user preference synchronization",
+          "Test database backup and restore",
+          "Verify data integrity across sessions"
+        ],
+        "expected_result": "Consistent database operations without corruption"
+      },
+      {
+        "id": "INT-006",
+        "title": "Cross-Platform Integration",
+        "description": "Test integration between mobile app and headset",
+        "priority": "Medium",
+        "type": "Integration",
+        "preconditions": "Mobile app installed, Bluetooth connectivity",
+        "steps": [
+          "Pair headset with mobile app",
+          "Test settings synchronization",
+          "Test emergency contact updates",
+          "Verify remote monitoring capabilities"
+        ],
+        "expected_result": "Seamless communication between mobile app and headset"
+      }
+    ]
+  }
+}
